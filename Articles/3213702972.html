@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>深度学习基础-模型压缩 | CatchCodes</title>
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-深度学习基础-模型压缩" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-14T12:57:38.000Z" itemprop="datePublished">2023-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      深度学习基础-模型压缩
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/50.jpg" alt="" data-align="center" width="552">
+<span id="more"></span>
+<h3 id="减少模型参数">减少模型参数</h3>
+<p><strong>网络裁剪</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>network pruning<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>通过判断某参数的 l1 或者 l2 范数是否接近于 0 来决定是否要裁剪该参数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>通常使用 0 来代替被裁剪的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
+<p>神经元的输出在大多数情况下都为 0 或者接近 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么我们就可以把这个神经元给裁减掉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
+<p>裁剪后进行<strong>微调</strong>(fine-tune)填补丢失的性能</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/c05ad483120f4f5ea573f98a09b26c18.png" alt="" data-align="center" width="256">
+<p><strong>知识蒸馏</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>knowledge distillation<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>先训练一个大模型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>teacher<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后再训练一个小模型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>student<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来拟合大模型的输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终得到的小模型体积比大模型小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但能获得和大模型接近的性能</p>
+<img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230414210326.png" title="" alt="" data-align="center">
+<p><strong>参数量化</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>parameter quantization<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>参数聚类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>parameter clustering<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>使用聚类算法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如 k-means<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将相似的参数转为同一个值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后记录某个参数属于哪个簇以及该簇对应的参数值是多少即可</p>
+<p><strong>模型结构设计</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>architecture design<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如1x1卷积核<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span> Depthwise Separable Convolution<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>深度可分离卷积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>,减少卷积核参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>    假设卷积核输入端的特征图大小为(4x4)x64<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输出端的大小为(3x3)x128<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>卷积核尺寸为(2x2)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>单位步长和无填充<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则深度可分卷积首先使用64个(2x2)x1的卷积核在每个通道分别卷积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并组合得到(3x3)x64的张量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随后使用128个(1x1)x64的单位卷积核输出结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所需的参数总量为8448<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>若使用标准卷积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则128个(2x2)x64的卷积核所需的参数总量为32768<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是前者的4倍左右</p>
+<h3 id="减少存储空间">减少存储空间</h3>
+<p>16位模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span> torch.nn.Module.half()方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/NVIDIA/apex#quick-start">APEX</a> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>深度学习加速库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由英伟达开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完美支持PyTorch框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于改变数据格式来减小模型显存占用的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其中最有价值的是 amp (Automatic Mixed Precision<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自动混合精度) <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将模型的大部分操作都用 Float16 数据类型测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一些特别操作仍然使用 Float32<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/Deep-Learing/" rel="tag">Deep-Learing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" rel="tag">模型压缩</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="2553868675.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          深度学习基础-激活函数
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

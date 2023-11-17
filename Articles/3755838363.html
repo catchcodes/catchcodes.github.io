@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>深度学习基础-损失函数 | CatchCodes</title>
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-深度学习基础-损失函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-14T06:48:47.000Z" itemprop="datePublished">2023-04-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      深度学习基础-损失函数
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/33.jpg" alt="" data-align="center" width="533">
+<span id="more"></span>
+<h2 id="前言">前言</h2>
+<p>经过上一篇<a href="https://catchcodes.github.io/Articles/2750935351.html">深度学习基础-神经网络</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们对神经网络有了一个初步的了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>本文将深入讲解损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="选择不同损失函数的原因">选择不同损失函数的原因</h2>
+<p>上文说到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>损失函数是衡量模型预测值和实际值误差的函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不同的模型需要不同的指标去衡量误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>原因如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>离群点对不同的模型的影响不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果离群点是需要重点关注的异常值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们要选择均方误差这种对离群点敏感的损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>回归问题和分类问题需要不同的损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前者输出预测值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更多基于距离度量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后者输出预测类别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更多基于概率分布度量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不同损失函数的收敛速度不一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要根据模型去选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>不同模型对预测结果的大小应有不同的损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>预测错误的梯度幅值应根据模型选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="损失函数分类">损失函数分类</h2>
+<h4 id="回归问题">回归问题</h4>
+<p>1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>绝对值误差MAE</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>L1损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$ L_{\!M\!A\!E\!}(y,f(x))=|y-f(x)|$</span></p>
+<p>对异常点有更好的鲁棒性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对所有点的梯度都一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在0点不可导<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在0的去心邻域内梯度也很大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不利用收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230414160725.png" alt="" data-align="center" width="409">
+<p>2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>均方误差</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>L2损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$ L_{\!M\!S\!E\!}(y,f(x))=[y-f(x)]^2$</span></p>
+<p>计算简便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>损失的梯度随损失增大而增大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而损失趋于0时则会减小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对异常点灵敏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能出现梯度爆炸问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230414160651.png" alt="" data-align="center" width="388">
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>L1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>L2是指L1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>L2范数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假设<span class="markdown-them-math-inline">$X=(x_1,x_2,\cdots,x_n)$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则</p>
+<p>L0范数<span class="markdown-them-math-inline">$\| X\|_0$</span>为向量<span class="markdown-them-math-inline">$X$</span>中的非零元素个数</p>
+<p>L1范数为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$\|X \|_1=\sum \vert x_i\vert$</span></p>
+<p>L2范数为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$\| X\|_2=\sqrt{\sum x_i^2}$</span></p>
+<p>Lp范数为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$\| X\|_p=\sqrt[p]{\sum x_i^p}$</span></p>
+<p>p趋于<span class="markdown-them-math-inline">$\infty$</span>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\| X\|_{\infty}=max{\vert x_i\vert}$</span></p>
+<p>3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>Huber误差</strong></p>
+<p><span class="markdown-them-math-inline">$\displaystyle L_{\delta}(y,f(x))= \begin{cases} \frac{1}{2}(y-f(x))^2 &amp;  |y-f(x)|\leq \delta, \\ \delta|y-f(x)|-\frac{1}{2}\delta^2 &amp; otherwise. \end{cases}$</span></p>
+<p>结合了MAE和MSE的优点 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\delta$</span>为超参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要去评估<span class="markdown-them-math-inline">$\delta$</span>的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>当  <span class="markdown-them-math-inline">$\vert y-f(x) \vert&gt; \delta$</span> 时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度一直近似为 <span class="markdown-them-math-inline">$\delta$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够保证模型以一个较快的速度更新参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又对离群点较为鲁棒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span><br>
+当 <span class="markdown-them-math-inline">$\vert y-f(x) \vert\leq\delta$</span> 时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度逐渐减小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够保证模型收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/e79721d83a8671ca860cf4fcbc010993.png" alt="" data-align="center" width="399">
+<p>4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>双曲余弦误差Log-cosh</strong></p>
+<p>二阶处处可微<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$ L(y,f(x))=log[cosh(f(x)-y)]$</span></p>
+<p>相当于处处二次可导的Huber损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用牛顿法优化迭代时就需要二阶导数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且没有超参数</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/a7c62f9b24fce5a9dc5a4ff43bc0a561.png" alt="" data-align="center" width="375">
+<p>5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>分位数损失</strong></p>
+<p><span class="markdown-them-math-inline">$\displaystyle L_{\gamma}(y,f(x))=\sum_{i:y_i&lt;f(x_i)}(1-\gamma)|y_i-f(x_i)|+\sum_{i:y_i \geq f(x_i)}\gamma|y_i-f(x_i)|$</span></p>
+<p>通过分位值<span class="markdown-them-math-inline">$ \gamma$</span>对高估和低估给予不同的惩罚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反映对正误差和负误差的重视程度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\gamma=0.5$</span>时相当于绝对值损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span><span class="markdown-them-math-inline">$\gamma&gt;0.5$</span>时对负误差更敏感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span><span class="markdown-them-math-inline">$\gamma&lt;0.5$</span>时对正误差更敏感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/0d3b50f9bbb641a7cf92db47558ad089.png" alt="" data-align="center" width="343">
+<p><span class="markdown-them-math-inline">$\gamma$</span>取不同值可以获取不同分位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以预测结果的上下界</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230414183324.png" alt="" width="328" data-align="center">
+<h4 id="分类问题">分类问题</h4>
+<p>对于分类问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上述损失函数不太适用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>Hinge损失</strong></p>
+<p><span class="markdown-them-math-inline">$ L=max\{0\ , 1-yf(x)\}$</span></p>
+<p>适用于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA">支持向量机SVM</a>的二分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不仅要分类正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还要让间隔最大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/v2-3c6aa9626ee8e4609b0d7c5712baf624_r.png" alt="" width="449" data-align="center">
+<p>下面是其变体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>原型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>蓝色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在1处不可导</p>
+<p>平方变体<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>绿色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><span class="markdown-them-math-inline">$max\{0, 1-yf(x)\}^2$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span></p>
+<p>以及 Rennie 和 Srebro 提出的分段平滑变体<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>红色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><span class="markdown-them-math-inline">$\begin{cases}0.5-yf(x) &amp; yf(x)\leq0 \\ 0.5(1-yf(x))^2 &amp; 0&lt;yf(x)&lt;1 \\ 0 &amp; yf(x)\geq 1 \end{cases}$</span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Hinge_loss_variants.svg" alt="" width="395" data-align="center">
+<p>2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>交叉熵</strong>损失</p>
+<ul>
+<li>
+<p>二分类用Binary Cross-Entropy <span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle L(y,f(x))=-y\log p-(1-y)\log(1-p)=\begin{cases}-\log p &amp; y=1 \\ -\log(1-p) &amp; y=0 \end{cases}$</span></p>
+</li>
+</ul>
+<p>配上Sigmoid激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只输出一个概率值p</p>
+<ul>
+<li>
+<p>多分类时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般都用交叉熵损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle L(y,f(x))=-\sum_{c=1}^N y\log(p_c)$</span></p>
+<p>配上softmax激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输出属于各个类别的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$p_c$</span>为预测为类别c的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>N为类别数量</p>
+</li>
+</ul>
+<p>3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>focal损失</strong></p>
+<p>预测错误的梯度更大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>预测正确的梯度小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自适应样本的分类难易程度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>其实就是让保持分类正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>加大调整分类错误的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle L(y,f(x))=\begin{cases}-(1-p)^{\gamma}\log p &amp; y=1 \\ -p^{\gamma}\log(1-p) &amp; y=0 \end{cases}$</span></p>
+<p>蓝线为二分类交叉熵损失</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230414200658.png" alt="" data-align="center" width="499">
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/Deep-Learing/" rel="tag">Deep-Learing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="tag">损失函数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="2553868675.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深度学习基础-激活函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="2750935351.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          深度学习基础-神经网络
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

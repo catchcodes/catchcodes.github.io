@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>回顾 | CatchCodes</title><meta name="robots" content="noindex">
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-回顾" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-23T10:59:06.000Z" itemprop="datePublished">2023-04-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      回顾
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/47.jpg" alt="" data-align="center" width="546">
+<span id="more"></span>
+<h3 id="前言">前言</h3>
+<p>本文是我在大学课外的学习知识的回顾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="大创">大创</h3>
+<p>大创是我入坑深度学习的契机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>项目结构</p>
+<img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/2023-04-23-19-12-54-image.png" title="" alt="" data-align="center">
+<p>data文件夹存放各个数据集</p>
+<p>AdvBox是百度的对抗攻击的库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>项目使用了其中的DeepFool攻击算法</p>
+<p>Distance文件夹和Distance_vceg文件夹分别是DeepFool攻击和项目提出攻击算法得出的决策边界距离</p>
+<p>adversial_MIA.py文件是主文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>定义了各种参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是整个项目的运行文件</p>
+<p>FL_model_data_init.py是联邦学习中模型的定义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据集的导入划分</p>
+<p>FL_base_function.py是联邦学习的功能函数文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包括本地模型的运行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>本地模型平均得到全局模型</p>
+<p>attack_function.py实现对抗攻击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增加了噪声放大训练集样本和测试集样本的差异</p>
+<p>attack.py为我改进HSJA的一个算法vceg</p>
+<p>2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>联邦学习<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/271785581">https://zhuanlan.zhihu.com/p/271785581</a></p>
+<p>联邦学习针对的是数据不能共享的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一种分布式的框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分为客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>服务器端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>客户端有不同的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是出于隐私的保护不能共享<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就在客户端本地训练模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将得出的模型参数或梯度传给服务器端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>服务器端聚合<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>平均或带权平均<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>回传给客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ol>
+<li>所有客户端分别独立地在本地数据上进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>客户端对模型参数或者模型参数的梯度进行加密<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上传到服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>服务器对搜集到的客户端的模型参数或者梯度进行聚合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且是安全聚合<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Secure Aggregation<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>服务器将模型下发到各个客户端</li>
+</ol>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230423193144.png" alt="" data-align="center" width="541">
+<p>此中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>涉及到了许多问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p><strong>Non-IID问题</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>由于数据来自各个客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据分布不再满足传统机器学习假设的数据独立同分布<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>IID<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反而是非独立同分布<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Non-IID<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种情况下如何保证各个客户端训练的模型依旧可以被有效地全局聚合<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Global Aggregation<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即便能聚合出好的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如何将其部署下发到数据分布有所差异的客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即模型个性化问题<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Personalization<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>由于客户端数据分布不一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在本地训练的模型往往分歧比较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此可以在参数服务器上保留一些公共数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些公共数据包含了客户端上所有分布下的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以用来矫正聚合的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>由于数据涉及隐私<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>往往可以通过GAN训练一些伪造数据等等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
+<p>2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Non-IID带来的问题主要是在于各个客户端上的梯度差异过大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此聚合时可能会不收敛或者难收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此需要加入正则化项限制客户端上模型训练和公有模型的差异<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
+<p>3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可以利用多任务学习技术来解决Non-IID问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此外还可以借助元学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Meta Learning<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>增量学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Incremental Learning<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>等范式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p><strong>数据传输问题</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>联邦学习严重依赖于数据传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如何降低数据传输的开销以及如何确保通信不稳定的情况下系统依旧可以正常工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+</li>
+<li>
+<p><strong>隐私保护措施</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>什么是安全聚合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>怎么样才能做到安全多方计算<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Secure Multi-Party Computing, Secure MPC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>?</p>
+<p>现有的解决方法有差分隐私<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Differential Privacy<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>同态加密<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Homomorphic Encryption<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>等等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<p>在两个数据集的用户特征重叠较多而用户重叠较少的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们把数据集按照横向(即用户维度)切分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并取出双方用户特征相同而用户不完全相同的那部分数据进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方法叫做<strong>横向联邦学习</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在两个数据集的用户重叠较多而用户特征重叠较少的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们把数据集按照纵向<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即特征维度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>切分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并取出双方用户相同而用户特征不完全相同的那部分数据进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方法叫做<strong>纵向联邦学习</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在两个数据集的用户与用户特征重叠都较少的情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们不对数据进行切分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而可以利用迁移学习来克服数据或标签不足的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方法叫做<strong>联邦迁移学习</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>对抗攻击</p>
+<p>对抗攻击英文为adversarial attack<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>即对输入样本故意添加一些人无法察觉的细微的干扰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致模型以高置信度给出一个错误的输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>深度神经网络模型的非线性导致的输入与输出映射的不连续性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>加上不充分的模型平均和不充分的正则化导致的过拟合使得对抗攻击成为可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230423200623.png" alt="" data-align="center" width="554">
+<p><img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230423201212.png" alt=""></p>
+<p>分为白盒攻击和黑盒攻击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者定向攻击和非定向攻击</p>
+<p>白盒攻击对模型和训练集完全了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种情况比较简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是和实际情况不符合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>黑盒攻击对模型不了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对训练集不了解或了解很少这种攻击和实际情况比较符合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要也是主要研究方向<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>定向攻击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>称为targeted attack<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于一个多分类网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把输入分类误判到一个指定的类上</p>
+<p>非定向攻击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>称为non-target attack<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需要生成对抗样本来欺骗神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以看作是上面的一种特例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>DeepFool白盒攻击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>到决策边界的距离作为噪声<br>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230423201707.png" alt="" data-align="center" width="602"></p>
+<img title="" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9Qc2hvOWRtN29ER3RnYmh1WjRDdFJqaWMzdUE0RElpYXJ4ZE90aWNWVDhhTHJOSGZTbnppY3pHNkQzRlQ1b1B2bnhEVmpqOTlGaWJXbElUeWo4c05tVmJYOTNRLzY0MA?x-oss-process=image/format,png" alt="" data-align="center" width="576">
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230423201737.png" alt="" width="578" data-align="center">
+<img title="" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9Qc2hvOWRtN29ER3RnYmh1WjRDdFJqaWMzdUE0RElpYXJ4aWFiSGJFTVVpY3VzaGlhM1Y5aWNFQ3dWaWFMRDdFaWNTeTdNR3gxb0hiQkl4dGI5NUR2RDc2Q2EyTGljUS82NDA?x-oss-process=image/format,png" alt="" data-align="center" width="439">
+<p>HSJA黑盒攻击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<h3 id="实验室">实验室</h3>
+<!-- flag of hidden posts -->
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"></ul>
+
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>HSV空间替换纯色衣服颜色 | CatchCodes</title>
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-HSV空间替换纯色衣服颜色" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-09T07:28:03.000Z" itemprop="datePublished">2023-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      HSV空间替换纯色衣服颜色
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/31.jpg" alt="" data-align="center" width="477">
+<span id="more"></span>
+<p>本文将介绍如何在HSV空间替换衣服的颜色<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>仅限纯色衣服<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>完整代码可见我的Github<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/catchcodes/ChangeCloth">GitHub - catchcodes/ChangeCloth: 在HSV空间替换衣服颜色</a></p>
+<p>包括单纯opencv和用pyqt5实现图形界面的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="hsv详解">HSV详解</h2>
+<h4 id="hsv颜色空间介绍">HSV颜色空间介绍</h4>
+<p>HSV是一种将RGB色彩模型中的点在<strong>圆柱坐标系</strong>中的表示方法</p>
+<ul>
+<li>
+<p><strong>色相</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Hue<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是色彩的基本属性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用角度度量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>取值范围为0°～360°<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>在OpenCV中为0-180<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是由于8bit的最大值为255<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从红色开始按逆时针方向计算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>红色为0°<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>绿色为120°,蓝色为240°<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</br>
+</li>
+<li>
+<p><strong>饱和度</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Saturation<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>表示颜色接近光谱色的程度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><em>一种颜色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以看成是某种光谱色与白色混合的结果</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其中光谱色所占的比例愈大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>颜色接近光谱色的程度就愈高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>颜色的饱和度也就愈高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>饱和度高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>颜色则深而艳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>光谱色的白光成分为0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>饱和度达到最高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通常取值范围为0%～100%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>值越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>颜色越饱和<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>在OpenCV中为0-255<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</br>
+</li>
+<li>
+<p><strong>明度</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Value<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>明度表示颜色明亮的程度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于光源色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>明度值与发光体的光亮度有关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>对于物体色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此值和物体的透射比或反射比有关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>光照对此值影响最大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通常取值范围为0%<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>黑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>到100%<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>在OpenCV中为0-255<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/HSV%E8%A1%A8%E6%A0%BC.png" title="" alt="" data-align="center">
+<h4 id="rgb转换为hsv">RGB转换为HSV</h4>
+<p><span class="markdown-them-math-inline">$ r = R/255.0, \ g = G/255.0 , \ b=B/255.0 $</span></p>
+<p><span class="markdown-them-math-inline">$ max = \max(r, g, b), \ min = \min(r, g, b) $</span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/H%E5%88%86%E9%87%8F.svg" alt="" data-align="center" width="391">
+</br>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/S%E5%88%86%E9%87%8F.svg" alt="" data-align="center" width="332">
+</br>
+<img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/V%E5%88%86%E9%87%8F.svg" title="" alt="" data-align="center">
+<h4 id="hsv与hsl的对比">HSV与HSL的对比</h4>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>HSL也称HSI<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>I<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Intensity<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或HLS</p>
+<p>上一张经典的对比图<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>图源Wikipedia<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/R.png" alt="" width="454" data-align="center">
+<ul>
+<li>
+<p>在HSL中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>亮度L分量跨越<strong>从黑色经过选择的色相到白色的完整范围</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
+</li>
+<li>
+<p>在HSV中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>V分量只走一半行程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>从黑色到选择的色相</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<p>下列左图为HSL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>右图为HSV</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/HSV%E4%B8%8EHSL%E5%AF%B9%E6%AF%94.png" alt="" data-align="center" width="577">
+<h2 id="代码实现">代码实现</h2>
+<p><strong>第一步</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>点击图片获取要替换的衣服BGR颜色<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也可直接根据图片H分量范围去选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>img = cv2.imread(<span class="hljs-string">r&quot;图片路径&quot;</span>)
+rows, cols, _ = img_hsv.shape
+
+cv2.namedWindow(<span class="hljs-string">&quot;ChangeColor&quot;</span>)
+cv2.resizeWindow(<span class="hljs-string">&quot;ChangeColor&quot;</span>, rows, cols)
+<span class="hljs-comment"># 创建一个鼠标事件响应</span>
+cv2.setMouseCallback(<span class="hljs-string">&quot;ChangeColor&quot;</span>, get_color_BGR)
+
+<span class="hljs-comment"># 这是setMouseCallback的声明原型&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;参数分别为窗口名&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;鼠标响应函数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;传给鼠标响应函数参数</span>
+<span class="hljs-comment"># def setMouseCallback(windowName: Any,</span>
+<span class="hljs-comment">#                      onMouse: Any,</span>
+<span class="hljs-comment">#                      param: Any = None) -&gt; None</span>
+
+<span class="hljs-comment"># 回调函数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt; 即鼠标事件响应函数</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_color_BGR</span>(<span class="hljs-params">envent, x, y, flags, param</span>):</span>
+    <span class="hljs-keyword">if</span> envent == cv2.EVENT_LBUTTONDOWN:
+        <span class="hljs-comment"># 注意&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;：&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;opencv的行列与坐标相反(row, col) -&gt; (y, x)</span>
+        BGR = img[y, x].tolist()     
+</code></pre></div>
+<p><strong>第二步</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将获取到的BGR值转为HSV</p>
+<div class="highlight"><pre class="code"><code>HSV = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">256</span>]  <span class="hljs-comment"># 一个不存在的HSV值</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bgr2hsv</span>(<span class="hljs-params">b, g, r</span>):</span>
+    <span class="hljs-comment"># 限定像素BGR值的范围</span>
+    <span class="hljs-keyword">assert</span> (<span class="hljs-number">0</span> &lt;= r &lt; <span class="hljs-number">256</span> <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= g &lt; <span class="hljs-number">256</span> <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= b &lt; <span class="hljs-number">256</span>)
+
+    r, g, b = r / <span class="hljs-number">255.0</span>, g / <span class="hljs-number">255.0</span>, b / <span class="hljs-number">255.0</span>
+    Max = <span class="hljs-built_in">max</span>(r, g, b)
+    Min = <span class="hljs-built_in">min</span>(r, g, b)
+    D = Max - Min
+
+    HSV[<span class="hljs-number">2</span>] = <span class="hljs-built_in">int</span>(Max * <span class="hljs-number">255</span>)
+
+    HSV[<span class="hljs-number">1</span>] = <span class="hljs-built_in">int</span>(<span class="hljs-number">255</span> * (D / Max)) <span class="hljs-keyword">if</span> Max != <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">if</span> D == <span class="hljs-number">0</span>:
+        HSV[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">elif</span> Max == r:
+        HSV[<span class="hljs-number">0</span>] = (<span class="hljs-number">60</span> * ((g - b) / D)) % <span class="hljs-number">360</span>
+    <span class="hljs-keyword">elif</span> Max == g:
+        HSV[<span class="hljs-number">0</span>] = (<span class="hljs-number">120</span> + <span class="hljs-number">60</span> * ((b - r) / D)) % <span class="hljs-number">360</span>
+    <span class="hljs-keyword">elif</span> Max == b:
+        HSV[<span class="hljs-number">0</span>] = (<span class="hljs-number">240</span> + <span class="hljs-number">60</span> * ((r - g) / D)) % <span class="hljs-number">360</span>
+
+    HSV[<span class="hljs-number">0</span>] = <span class="hljs-built_in">int</span>(HSV[<span class="hljs-number">0</span>] / <span class="hljs-number">2</span>)
+    <span class="hljs-keyword">return</span> HSV
+</code></pre></div>
+<p><strong>第三步</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>限定H分量的范围<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>找到衣服的区域</p>
+<div class="highlight"><pre class="code"><code>img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+<span class="hljs-comment"># HSV 的下界限</span>
+lower = np.array([HSV[<span class="hljs-number">0</span>] - <span class="hljs-number">7</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>])
+<span class="hljs-comment"># HSV 的上界限</span>
+upper = np.array([HSV[<span class="hljs-number">0</span>] + <span class="hljs-number">7</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>])
+<span class="hljs-comment"># 找到H分量在这个范围的区域</span>
+mask = cv2.inRange(img_hsv, lower, upper)
+
+<span class="hljs-comment"># 腐蚀和膨胀的核kernel&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;可根据图片自己设计&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;</span>
+kernel = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], dtype=np.uint8)
+<span class="hljs-comment"># 腐蚀图像&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;除去干扰点</span>
+eroded = cv2.erode(mask, kernel, iterations=<span class="hljs-number">1</span>)
+<span class="hljs-comment"># 膨胀图像&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;恢复腐蚀前的大小</span>
+dilated = cv2.dilate(eroded, kernel, iterations=<span class="hljs-number">1</span>)
+</code></pre></div>
+<p><strong>第四步</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在窗口中控制H分量和显示图像</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># 在‘ChangeColor’窗口中创建滑动控制条</span>
+<span class="hljs-comment"># 参数介绍 createTrackbar(const String&amp; trackbarname, const String&amp; winname, int *value, int count, TrackbarCallback onChange = 0, void *userdata = 0)</span>
+<span class="hljs-comment"># 分别为滑动条名称&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;窗口名称&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;初始值&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;范围&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;滑块更改时的回调函数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;传给回调函数的参数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;默认为0&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;</span>
+cv2.createTrackbar(<span class="hljs-string">&#x27;H&#x27;</span>, <span class="hljs-string">&#x27;ChangeColor&#x27;</span>, <span class="hljs-number">140</span>, <span class="hljs-number">180</span>, <span class="hljs-keyword">lambda</span> x: <span class="hljs-literal">None</span>)
+<span class="hljs-comment"># cv2.createTrackbar(&#x27;S&#x27;, &#x27;ChangeColor&#x27;, 100, 255, lambda x: None)</span>
+<span class="hljs-comment"># cv2.createTrackbar(&#x27;V&#x27;, &#x27;ChangeColor&#x27;, 100, 255, lambda x: None)</span>
+
+<span class="hljs-comment"># 获取滑块的值</span>
+h = cv2.getTrackbarPos(<span class="hljs-string">&#x27;H&#x27;</span>, <span class="hljs-string">&#x27;ChangeColor&#x27;</span>)
+<span class="hljs-comment"># s = cv2.getTrackbarPos(&#x27;S&#x27;, &#x27;ChangeColor&#x27;)</span>
+<span class="hljs-comment"># v = cv2.getTrackbarPos(&#x27;V&#x27;, &#x27;ChangeColor&#x27;)</span>
+
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(rows):
+    <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(cols):
+        <span class="hljs-keyword">if</span> dilated[row, col] == <span class="hljs-number">255</span>:
+            img_hsv.itemset((row, col, <span class="hljs-number">0</span>), h)
+            <span class="hljs-comment"># img_hsv.itemset((row, col, 1), s)</span>
+            <span class="hljs-comment"># img_hsv.itemset((row, col, 2), v)</span>
+
+img = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
+cv2.imshow(<span class="hljs-string">&quot;ChangeColor&quot;</span>, img)
+</code></pre></div>
+<h4 id="完整代码">完整代码</h4>
+<p>可以直接在我的Github上Clone<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/catchcodes/ChangeCloth">https://github.com/catchcodes/ChangeCloth</a></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment">#!/usr/bin/env python</span>
+<span class="hljs-comment"># -*- coding:utf-8 -*-</span>
+<span class="hljs-comment"># @FileName  :main.py</span>
+<span class="hljs-comment"># @Time      :2023/4/7 19:46</span>
+<span class="hljs-comment"># @Author    :Ouyang Bin</span>
+
+<span class="hljs-keyword">import</span> cv2
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-comment"># 不存在的HSV值</span>
+HSV = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">256</span>]
+newHSV = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">256</span>]
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bgr2hsv</span>(<span class="hljs-params">b, g, r</span>):</span>
+    <span class="hljs-comment"># 限定像素BGR值的范围</span>
+    <span class="hljs-keyword">assert</span> (<span class="hljs-number">0</span> &lt;= r &lt; <span class="hljs-number">256</span> <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= g &lt; <span class="hljs-number">256</span> <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= b &lt; <span class="hljs-number">256</span>)
+
+    r, g, b = r / <span class="hljs-number">255.0</span>, g / <span class="hljs-number">255.0</span>, b / <span class="hljs-number">255.0</span>
+    Max = <span class="hljs-built_in">max</span>(r, g, b)
+    Min = <span class="hljs-built_in">min</span>(r, g, b)
+    D = Max - Min
+
+    HSV[<span class="hljs-number">2</span>] = <span class="hljs-built_in">int</span>(Max * <span class="hljs-number">255</span>)
+
+    HSV[<span class="hljs-number">1</span>] = <span class="hljs-built_in">int</span>(<span class="hljs-number">255</span> * (D / Max)) <span class="hljs-keyword">if</span> Max != <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">if</span> D == <span class="hljs-number">0</span>:
+        HSV[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">elif</span> Max == r:
+        HSV[<span class="hljs-number">0</span>] = (<span class="hljs-number">60</span> * ((g - b) / D)) % <span class="hljs-number">360</span>
+    <span class="hljs-keyword">elif</span> Max == g:
+        HSV[<span class="hljs-number">0</span>] = (<span class="hljs-number">120</span> + <span class="hljs-number">60</span> * ((b - r) / D)) % <span class="hljs-number">360</span>
+    <span class="hljs-keyword">elif</span> Max == b:
+        HSV[<span class="hljs-number">0</span>] = (<span class="hljs-number">240</span> + <span class="hljs-number">60</span> * ((r - g) / D)) % <span class="hljs-number">360</span>
+
+    HSV[<span class="hljs-number">0</span>] = <span class="hljs-built_in">int</span>(HSV[<span class="hljs-number">0</span>] / <span class="hljs-number">2</span>)
+    <span class="hljs-keyword">return</span> HSV
+
+
+<span class="hljs-comment"># 回调函数</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_color_BGR</span>(<span class="hljs-params">envent, x, y, flags, param</span>):</span>
+    <span class="hljs-keyword">if</span> envent == cv2.EVENT_LBUTTONDOWN:
+        <span class="hljs-comment"># 注意&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;：&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;opencv的行列与坐标相反(row, col) -&gt; (y, x)</span>
+        BGR = img[y, x].tolist()
+        bgr2hsv(BGR[<span class="hljs-number">0</span>], BGR[<span class="hljs-number">1</span>], BGR[<span class="hljs-number">2</span>])
+
+
+img = cv2.imread(<span class="hljs-string">r&quot;C:\Users\19941\Pictures\cloth.jpg&quot;</span>)
+img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+rows, cols, _ = img_hsv.shape
+
+cv2.namedWindow(<span class="hljs-string">&quot;ChangeColor&quot;</span>)
+cv2.resizeWindow(<span class="hljs-string">&quot;ChangeColor&quot;</span>, rows, cols)
+cv2.setMouseCallback(<span class="hljs-string">&quot;ChangeColor&quot;</span>, get_color_BGR)
+
+cv2.createTrackbar(<span class="hljs-string">&#x27;H&#x27;</span>, <span class="hljs-string">&#x27;ChangeColor&#x27;</span>, <span class="hljs-number">140</span>, <span class="hljs-number">180</span>, <span class="hljs-keyword">lambda</span> x: <span class="hljs-literal">None</span>)
+<span class="hljs-comment"># cv2.createTrackbar(&#x27;S&#x27;, &#x27;ChangeColor&#x27;, 100, 255, lambda x: None)</span>
+<span class="hljs-comment"># cv2.createTrackbar(&#x27;V&#x27;, &#x27;ChangeColor&#x27;, 100, 255, lambda x: None)</span>
+
+times = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    cv2.imshow(<span class="hljs-string">&#x27;ChangeColor&#x27;</span>, img)
+
+    <span class="hljs-keyword">if</span> newHSV != HSV:
+        <span class="hljs-keyword">if</span> times == <span class="hljs-number">0</span>:
+            <span class="hljs-comment"># HSV 的下界限</span>
+            lower = np.array([HSV[<span class="hljs-number">0</span>] - <span class="hljs-number">7</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>])
+            <span class="hljs-comment"># HSV 的上界限</span>
+            upper = np.array([HSV[<span class="hljs-number">0</span>] + <span class="hljs-number">7</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>])
+            mask = cv2.inRange(img_hsv, lower, upper)
+
+            <span class="hljs-comment"># 核</span>
+            kernel = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]], dtype=np.uint8)
+            <span class="hljs-comment"># 腐蚀图像&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;除去干扰点</span>
+            eroded = cv2.erode(mask, kernel, iterations=<span class="hljs-number">1</span>)
+            <span class="hljs-comment"># 膨胀图像</span>
+            dilated = cv2.dilate(eroded, kernel, iterations=<span class="hljs-number">1</span>)
+
+            times += <span class="hljs-number">1</span>
+
+        h = cv2.getTrackbarPos(<span class="hljs-string">&#x27;H&#x27;</span>, <span class="hljs-string">&#x27;ChangeColor&#x27;</span>)
+        <span class="hljs-comment"># s = cv2.getTrackbarPos(&#x27;S&#x27;, &#x27;ChangeColor&#x27;)</span>
+        <span class="hljs-comment"># v = cv2.getTrackbarPos(&#x27;V&#x27;, &#x27;ChangeColor&#x27;)</span>
+
+        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(rows):
+            <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(cols):
+                <span class="hljs-keyword">if</span> dilated[row, col] == <span class="hljs-number">255</span>:
+                    img_hsv.itemset((row, col, <span class="hljs-number">0</span>), h)
+                    <span class="hljs-comment"># img_hsv.itemset((row, col, 1), s)</span>
+                    <span class="hljs-comment"># img_hsv.itemset((row, col, 2), v)</span>
+
+        img = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
+        cv2.imshow(<span class="hljs-string">&quot;ChangeColor&quot;</span>, img)
+    <span class="hljs-keyword">else</span>:
+        img = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
+        cv2.imshow(<span class="hljs-string">&quot;ChangeColor&quot;</span>, img)
+
+    <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xff</span> == <span class="hljs-number">27</span>:
+        <span class="hljs-keyword">break</span>
+
+cv2.destroyAllWindows()
+
+</code></pre></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/OpenCV/" rel="tag">OpenCV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">数字图像处理</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="2750935351.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深度学习基础-神经网络
+        
+      </div>
+    </a>
+  
+  
+    <a href="3229213266.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Markdown教程
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>深度学习基础-神经网络 | CatchCodes</title>
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-深度学习基础-神经网络" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-09T09:13:34.000Z" itemprop="datePublished">2023-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      深度学习基础-神经网络
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/26.jpg" alt="" data-align="center" width="449">
+<span id="more"></span>
+<h2 id="前言">前言</h2>
+<p>本文将从单层感知机开始逐步深入到多层感知机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解释激活函数的出现和特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解释损失函数的出现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解释模型的最终收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解释参数的初始化准则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并有后向传播的公式推导<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="神经元">神经元</h2>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/%E7%A5%9E%E7%BB%8F%E5%85%83.png" alt="" data-align="center" width="415">
+<p>神经元通过突触将神经递质传递至后一个神经元的树突<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>多个树突接收的信号共同形成细胞整体的电信号并达到兴奋临界点时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>激发电信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这就是神经元简化后的工作流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>下图是神经元的电路模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/209cdf5b0e2830499aad5550ab0690ea.png" alt="" data-align="center" width="405">
+<h2 id="感知机">感知机</h2>
+<p>弗兰克·罗森布拉特在1957年就职于康奈尔航空实验室<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Cornell Aeronautical Laboratory<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>时将神经元抽象成<strong>感知机</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也称为前馈神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>感知机有n个输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个输出<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>0或1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结构如下图</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Ncell.png" alt="" data-align="center" width="234">
+<p><span class="markdown-them-math-inline">$\displaystyle f(x) = \sum_{i=1}^n \omega_i x_i+b\ \ \qquad \qquad  output = \begin{cases} 1 &amp; if\ f(x)&gt;0  \\ 0 &amp; else \end{cases} $</span></p>
+<p>输出<span class="markdown-them-math-inline">$output$</span>是<span class="markdown-them-math-inline">$sgn(f(x)) $</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>符号函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模拟神经元的激活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们称之为<strong>激活函数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这也是感知机与线性回归<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>没有激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和逻辑回归<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>激活函数为sigmoid函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的区别所在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>sgn函数是最早的激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现在基本不用了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>感知机是一个最简单的二元分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是一个单层的神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>下面我们假设<span class="markdown-them-math-inline">$b=0$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$b\neq0$</span>时让<span class="markdown-them-math-inline">$\omega,x$</span>维数多一维<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\omega_{n+1}=b \quad x_{n+1}=1$</span>即可</p>
+<p>假设我们有m对数据<span class="markdown-them-math-inline">$D_m = \{(x_1, y_1),\cdots,(x_m, y_m)\}$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$x$</span>为n维向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>y是x向量的标签<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>实际模型的输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正确结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输入数据都有标签的这种模式称为<strong>监督学习</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当输入数据没有标签称为<strong>无监督学习</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当输入数据只有部分有标签称为<strong>半监督学习</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当前大部分模型都是监督学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>感知机通过对<span class="markdown-them-math-inline">$D_m$</span><strong>多次迭代</strong>确定<span class="markdown-them-math-inline">$\omega_i (i=1,\cdots,n)$</span>的最终值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>对于<span class="markdown-them-math-inline">$D_m$</span>中的每对<span class="markdown-them-math-inline">$(x,y)$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\omega_j := \omega_j + \alpha (y-f(x))x(j) \qquad j=1,\cdots,n$</span></p>
+<p>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>仅当针对给定训练数据<span class="markdown-them-math-inline">$(x,y)$</span>产生的输出值<span class="markdown-them-math-inline">$f(x)$</span>与预期的输出值<span class="markdown-them-math-inline">$y$</span><strong>不同</strong>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>权重向量<span class="markdown-them-math-inline">$\omega$</span>才会发生改变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>人类的学习也正是由于这种非预期结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>至此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练好<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>参数确定好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的感知机就可以用于分类了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有在<span class="markdown-them-math-inline">$D_m$</span>是<strong>线性分隔</strong>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才可以在有限次迭代后收敛<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><span class="markdown-them-math-inline">$\omega_j$</span>趋于特定值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>如果存在一个正的常数<span class="markdown-them-math-inline">$\gamma$</span>和权重向量<span class="markdown-them-math-inline">$\omega$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对所有的<span class="markdown-them-math-inline">$i$</span>满足<span class="markdown-them-math-inline">$y_i \cdot(\omega\cdot x_i+b)&gt;\gamma$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练集<span class="markdown-them-math-inline">$D_m$</span>就被叫被做线性分隔的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>同时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>假设<span class="markdown-them-math-inline">$\displaystyle R=\max_{1\leq i \leq m}\|x_i\|$</span> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则错误次数<span class="markdown-them-math-inline">$k \leq (\frac{R}{\gamma})^2$</span></p>
+</blockquote>
+<p>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种单层的感知机只能做简单的线性分类任务<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>异或都无法实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而如果将计算层增加到两层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>计算量则过大<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>1970年左右<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且没有有效的学习算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>1974年哈佛大学的Paul Werbos就证明了增加一个网络层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>利用反向传播算法可以搞定XOR问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但却未得到重视<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="多层感知机">多层感知机</h2>
+<p>1986年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Rumelhar和<strong>Hinton</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>深度学习鼻祖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>等人提出了反向传播<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Backpropagation<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>BP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解决了两层神经网络所需要的复杂计算量问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并广泛应用于升级网络的训练中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>下图是一个简单的3输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>2输出的双层感知机<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>前馈神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间为4个节点的隐藏层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>一般来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输入节点数量和输出节点数量都是确定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>隐藏层节点数量需要自己设计<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>关键点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>StackOverflow上有一个经验公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$N_h = \frac{N_s}{\alpha (N_i+N_o)}$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$N_s$</span>为训练集样本数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\alpha$</span>一般取2~10<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$N_i$</span>为输入层节点数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$N_o$</span>为输出层节点数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在此经验公式上再试验调整即可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230409202342.png" alt="" width="346" data-align="center">
+<p><span class="markdown-them-math-inline">$a(\cdot)$</span>为激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如单层感知机的sgn函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但在多层感知机中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于涉及到梯度的计算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般用Sigmoid<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>ReLU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>tanh等激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>说明</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$w^{(1)}$</span>指第一层权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$w_1^{(1)}$</span>指<span class="markdown-them-math-inline">$x_1$</span> 对应的第一层权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$w_1^{(1)}[1]$</span>指<span class="markdown-them-math-inline">$x_1$</span>对应的第一层的权重的第一个值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$h_1 = a(\sum_{i=1}^3 w^{(1)}_i[1] x_i) \quad$</span> <span class="markdown-them-math-inline">$h_2 = a(\sum_{i=1}^3 w^{(1)}_i[2]x_i) \quad$</span> <span class="markdown-them-math-inline">$h_3 = a(\sum_{i=1}^3 w^{(1)}_i[3]x_i) \quad$</span> <span class="markdown-them-math-inline">$h_4 = a(\sum_{i=1}^3 w^{(1)}_i[4]x_i)$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$z_1 = \sum_{j=1}^4 w^{(2)}_j[1] h_j \qquad$</span> <span class="markdown-them-math-inline">$ z_2=\sum_{j=1}^4 w^{(2)}_j[2]h_j$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$ y_1 = a(z_1)=f(x)[1] \qquad $</span> <span class="markdown-them-math-inline">$y_2 = a(z_2)=f(x)[2]$</span></p>
+<p>其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$f(x)=(a(z_1),a(z_2))$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后面为索引<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对于偏置节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需让<span class="markdown-them-math-inline">$x_4=1,w^{(1)}_5=b^{(1)} \quad$</span> <span class="markdown-them-math-inline">$ h_5=1,w^{(2)}_3=b^{(2)}$</span> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>故先不考虑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>当中间隐藏层的神经元数量趋于无穷多时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>多层感知机可以拟合任何非线性函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>由于激活函数的存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若没有激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>多层线性层也只相当于一层线性层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可见<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/458006332">中文版证明过程</a>或<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/268384579/answer/540793202">直观理解</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此可以解决非线性分类任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="后向传播bp算法">后向传播BP算法</h4>
+<p>训练模型的目的是去拟合实际情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即让训练模型参数<span class="markdown-them-math-inline">$w$</span>和实际模型的参数一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为只能获取真实情况的标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个朴素的想法就是让模型的输出与实际接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那<strong>参数分布</strong>基本就与实际相似了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>那么如何衡量这个误差呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>于是定义了一个指标去衡量误差——<strong>损失函数</strong>(Loss-Function)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么我们的目的就是让<strong>所有样本的损失函数</strong>最小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>常见的损失函数有绝对值损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>均方损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Huber损失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>交叉熵损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>实际评判的标准还是在另一批数据<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><strong>测试集</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>损失函数只能判断是否收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我们称之为<strong>期望(expected)风险</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>所有</strong>样本的平均误差<span class="markdown-them-math-inline">$ R_{exp}(f)=E_p[L(Y,f(X))]$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$Y$</span>为标签集合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$X$</span>为样本集合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$L$</span>为损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为全局最优<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>进一步的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\displaystyle R_{exp}(f)= \int_{X\times Y } L(y,f(x))P(x,y)dxdy \quad$</span> <span class="markdown-them-math-inline">$ P(x,y)$</span>为真实分布</p>
+<p>但是我们手中只有部分的数据<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>训练数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不可能获取到所有的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更不用说真实分布<span class="markdown-them-math-inline">$P(X,Y)$</span>我们都无从得知<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是我们用我们<strong>训练集的数据去估计整体的误差</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我们称之为<strong>经验(empirical)风险</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>训练集上的平均误差<span class="markdown-them-math-inline">$ R_{emp}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为局部最优<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当数据量足够大时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经验风险就趋于期望风险<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>还有<strong>结构(structural)风险</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>为了让权值不会过大(参数稀疏化)并减轻过拟合程度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>让参数变为0或接近0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>边界较为平滑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>加上<strong>正则项</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也叫权重衰减项weight decay term<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>惩罚项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<blockquote>
+<p>奥卡姆剃刀原则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如无必要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>勿增实体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p><span class="markdown-them-math-inline">$ R_{str}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))+\lambda J(f)$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\lambda$</span>称为惩罚因子或weight decay parameter</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/898772cc648809a38dd6bff6e0bf7f96.png" alt="" data-align="center" width="470">
+<hr>
+<p>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们现在的问题是如何使损失函数<span class="markdown-them-math-inline">$L$</span>最小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这正是一个<strong>最优化问题</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们很容易想到令损失函数对参数的偏导为0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再从这些点中找出最优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>对于非凸函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>偏导为0并不等价于极值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>第二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>偏导为0的点可能有无穷多个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无法找出最优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>第三<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>求解偏导为0即对求解一个非线性方程组<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>激活函数的存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能根本求不出<strong>解析解</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>直接求解需要求矩阵的逆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并非所有矩阵都可逆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且计算量较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>所以我们只能去求<strong>数值解</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个普遍的算法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>或者<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95">遗传算法</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也有用<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1504.07278">HJB方程更新参数</a>的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是使用<strong>梯度下降(GD)算法</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>即对训练集<span class="markdown-them-math-inline">$D_m$</span>中<strong>所有</strong>的样本<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>m组数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>迭代</p>
+<p><span class="markdown-them-math-inline">$\displaystyle w_j^1[t]=w_j^1[t] - \eta_1\frac{1}{m} \sum_{i=1}^m \frac{\partial L(y_i^*,f(x_i))}{\partial w_j^1[t]} \quad t=1,2,3,4$</span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle w_j^{(2)}[t]=w_j^{(2)}[t] - \eta_2\frac{1}{m} \sum_{i=1}^m \frac{\partial L(y_i^*,f(x_i))}{\partial w_j^{(2)}[t]} \quad t=1,2$</span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><span class="markdown-them-math-inline">$y^*$</span>为真实标签向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$w$</span>和<span class="markdown-them-math-inline">$x_i$</span>为向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但<span class="markdown-them-math-inline">$w[t]$</span>为标量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\eta_1 \ \eta_2$</span> 为步长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也称为<strong>学习率</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>直至收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因为梯度的反方向是下降最快的方向即收敛最快的方向<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>学习率不宜过大<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>导致模型不能收敛或在最优点徘徊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或过小<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>收敛很慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>更容易进入局部最优点<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>局部极小值点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或鞍点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更多的是鞍点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可见[论文](1605.07110] Deep Learning without Poor Local Minima (<a target="_blank" rel="noopener" href="http://arxiv.org">arxiv.org</a>)](<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1605.07110">https://arxiv.org/abs/1605.07110</a>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常取值为0.01-0.001<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般来说每一层的学习率都是一样的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是可以根据自己需求去设置每一层的学习率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>学习率随训练轮数的增加可以适当降低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230411142400.png" alt="" width="429" data-align="center">
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>鞍点的Hessian矩阵不定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特征值有正有负<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>极小值点的Hessian矩阵正定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特征值都为正<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>有<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.5555/3305890.3305970">论文</a>说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230411184308.png" alt="" width="558" data-align="center">
+<p><span class="markdown-them-math-inline">$\phi$</span>为参数与数据量的比值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\epsilon$</span>为损失值Loss</p>
+<ul>
+<li>当Loss很大的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特征值分布有正有负<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>表明鞍点是困扰优化的主要原因</strong></li>
+<li>当Loss很小的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>鞍点逐渐消失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>主要是局部极小值点</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>大多数情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>局部最优和全局最优几乎一样好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>局部最优已经能满足我们的需要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以重点是去避免陷入鞍点和泛化不好的局部最优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而下文的SGD可以逃离鞍点和泛化不好的局部最优点<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>主要是sharp minima<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更倾向于收敛到flat minima<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p>那么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们的重点便是计算<span class="markdown-them-math-inline">$\frac{\partial L}{\partial w}$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以上面的多层感知机为例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>假设其损失函数为均方损失<span class="markdown-them-math-inline">$\displaystyle L(y^*,y)=\frac{1}{k} \sum_{i=1}^k(y_i-y^*_i)^2 \quad$</span> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>本例中输出节点数量<span class="markdown-them-math-inline">$k=2$</span></p>
+<p>又由上文可知<span class="markdown-them-math-inline">$\displaystyle y_i = a(z_i) \  =  a(\sum_{j=1}^4 w^{(2)}_j[i] h_j)=a(\sum_{j=1}^4 w^{(2)}_j[i] a(\sum_{n=1}^3w_n^{(1)}[j]x_n))$</span></p>
+<p>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对第二层的梯度计算如下<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>根据链式法则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle \frac{\partial L(y^*,y)}{\partial w^{(2)}_l[t]}=\frac{2}{k}\cdot (y_t-y^*_t) \frac{\partial y_t}{\partial w^{(2)}_l[t]}=\frac{2}{k}\cdot (y_t-y^*_t)\cdot \frac{\partial a(z_t)}{\partial z_t} \cdot \frac{\partial z_t}{\partial w^{(2)}_l[t]}=\frac{2}{k}\cdot (y_t-y^*_t)\cdot \frac{\partial a(z_t)}{\partial z_t} \cdot h_l$</span></p>
+<p>其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$\frac{\partial a(\cdot)}{\partial \cdot}=a'(\cdot)\quad k=2 \qquad l=1,2,3,4 \quad t=1,2$</span></p>
+<p>选择其他损失函数时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$2(y_t-y^*_t)$</span>换成<span class="markdown-them-math-inline">$\displaystyle \frac{\partial L(y,y^*)}{\partial y_t}$</span>即可</p>
+</br>
+<p>对第一层的梯度计算较为复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接计算如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle \frac{\partial L(y^*,y)}{\partial w^{(1)}_l[t]}=\frac{2}{k}\cdot  \sum_{i=1}^2 (y_i-y^*_i)\cdot\frac{\partial y_i}{\partial w^{(1)}_l[t]}$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$\displaystyle=\frac{2}{k}\cdot \sum_{i=1}^2 (y_i-y^*_i)\cdot\frac{\partial a(z_i)}{\partial z_i}\frac{\partial z_i}{\partial w^{(1)}_l[t]}$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$=\displaystyle \frac{2}{k}\cdot [(y_1-y^*_1)\cdot\frac{\partial a(z_1)}{\partial z_1}\cdot w^{(2)}_t[1]\cdot \frac{\partial h_t}{\partial w^{(1)}_l[t]}+(y_2-y^*_2)\cdot\frac{\partial a(z_2)}{\partial z_2}\cdot w_t^{(2)}[2]\cdot \frac{\partial h_t}{\partial w^{(1)}_l[t]}]$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$=\displaystyle \frac{2}{k}\cdot[(y_1-y^*_1)\cdot\frac{\partial a(z_1)}{\partial z_1}\cdot w^{(2)}_t[1] +(y_2-y^*_2)\cdot\frac{\partial a(z_2)}{\partial z_2}\cdot w_t^{(2)}[2]]\frac{\partial a(\sum_{i=1}^3 w^{(1)}_i[t] x_i)}{\partial w^{(1)}_l[t]}$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$=\displaystyle \frac{2}{k}\cdot[(y_1-y^*_1)\cdot\frac{\partial a(z_1)}{\partial z_1}\cdot w^{(2)}_t[1] +(y_2-y^*_2)\cdot\frac{\partial a(z_2)}{\partial z_2}\cdot w_t^{(2)}[2]]\cdot \frac{\partial a(\sum_{i=1}^3 w^{(1)}_i[t] x_i)}{\partial \sum_{i=1}^3 w^{(1)}_i[t] x_i}\cdot x_l $</span></p>
+<p>其中<span class="markdown-them-math-inline">$l=1,2,3 \quad t=1,2,3,4$</span></p>
+<p>但是我们可以借助第二层的梯度计算结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>简化为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="markdown-them-math-inline">$\displaystyle \frac{\partial L(y^*,y)}{\partial w^{(1)}_l[t]}=[\frac{\partial L(y^*,y)}{\partial w_l^{(2)}[1]}\cdot \frac{w_t^{(2)}[1]}{h_l}+\frac{\partial L(y^*,y)}{\partial w_l^{(2)}[2]}\cdot \frac{w_t^{(2)}[2]}{h_l}]\cdot \frac{\partial a(\sum_{i=1}^3 w^{(1)}_i[t] x_i)}{\partial \sum_{i=1}^3 w^{(1)}_i[t] x_i}\cdot x_l $</span></p>
+<p>将训练集中每个样本的梯度计算出来后便更新一次参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如此迭代直至收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这可以保证向<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>局部<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>最优点移动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是当数据量较大时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一次迭代较慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练过程很慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>占用内存较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且进行了很多冗余的计算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其他的做法有<strong>随机梯度下降</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>批量梯度下降</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>随机梯度下降Stochastic Gradient Descent</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每次从训练集随机选一个样本去更新参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>参数更新速度大大提高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降低了计算开销<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且有可能收敛到更好的局部最优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是这相当于对梯度的噪声估计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>参数的变化较为振荡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至有可能不收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但有研究显示当我们慢慢的降低学习率时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>SGD 拥有和 GD 一样的收敛性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于非凸和凸曲面几乎同样能够达到局部或者全局最优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以基本没人用GD<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>批量梯度下降Mini-Batch Gradient Descent</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每次从训练集选择k个样本去更新参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$1&lt;k&lt;m$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是对GD和SGD的折中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合了二者的优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是实际中常用的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通常我们称<span class="markdown-them-math-inline">$k$</span>为一个mini batch<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一轮迭代更新称为一个iteration<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>取完所有样本称为一个epoch<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h5 id="激活函数">激活函数</h5>
+<p>接下来就是激活函数<span class="markdown-them-math-inline">$a(\cdot)$</span>的选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由上式计算可以看出激活函数的梯度不能为0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则无法更新参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就是sgn函数不适用多层感知机的原因<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前向传播的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一层的输出都要经过激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们希望激活函数能将输出值限制在一个范围内<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样对于一些较大的输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型也能保持稳定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是这会限制模型的表达能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>故这需要根据自己的需求判断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>以下是激活函数应该具有的特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>激活函数应该为神经网络引入<strong>非线性</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即不是y=ax+b这种</li>
+<li>避免<strong>梯度弥散</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即梯度接近或等于0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或<strong>梯度爆炸</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>梯度大于或远大于1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>造成网络更新过慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由梯度计算式可以看到第一层的梯度有每一层激活函数导数的连乘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若是层数加深<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不合理的激活函数会使梯度容易出现0值或<span class="markdown-them-math-inline">$\infty$</span>值</li>
+<li>输出最好<strong>关于0对称</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则这一层输出都为正数或负数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致下一层的参数更新都是增加或减少<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>称为zig zag path<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不利于参数更新</li>
+<li>激活函数应该是<strong>可微的</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得满足各层之间梯度下降的计算(至少部分可微)</li>
+<li>梯度的<strong>计算不应该太复杂</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>影响网络性能</li>
+</ul>
+<p>下图是三种常用的激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其他函数可见<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Activation_function">维基百科</a></p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230411120953.png" alt="" data-align="center" width="579">
+<hr>
+<h5 id="参数初始化">参数初始化</h5>
+<p>通过梯度的计算式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们不难发现参数的更新与其<strong>初始值</strong>有关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其收敛速度跟初始值有很大关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若初始值都一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么参数的更新也会一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整个网络的参数都会一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这显然不符合我们的预期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>参数的初始化</strong>必须是<strong>随机</strong>的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不宜过大也不宜过小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则会出现梯度消失或梯度爆炸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>故我们需要控制初值的方差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最好保证输入输出的<strong>方差一致</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且其均值应为0<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>全为正或全为负会出现上文的zig zag path现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个好的参数初始化虽然不能完全解决<strong>梯度消失</strong>或<strong>梯度爆炸</strong>的问题<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>BatchNorm解决了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是对于处理这两个问题是有很大帮助的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且十分有利于提升模型的收敛速度和性能表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>下图是一些初始化的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个直观的解释可见<a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/7180">从几何视角来理解模型参数的初始化</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于tanh和Sigmoid这种<strong>饱和激活函数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Xavier初始化较为常用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>对于ReLU及其变种等<strong>非饱和激活函数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>He初始化较为常用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>x 趋于正无穷时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>激活函数的导数趋于 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则我们称之为<strong>右饱和</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>x 趋于负无穷时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>激活函数的导数趋于 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则我们称之为<strong>左饱和</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>当一个函数既满足右饱和又满足左饱和时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们称之为<strong>饱和激活函数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/df88506793f9ab7378cf838226f7660a.png" alt="" data-align="center" width="582">
+<p><span class="markdown-them-math-inline">$fan\_in$</span>是指这层的输入节点数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><span class="markdown-them-math-inline">$fan\_out$</span>是这层的输出节点数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/Deep-Learing/" rel="tag">Deep-Learing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="3755838363.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深度学习基础-损失函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="2372941552.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          HSV空间替换纯色衣服颜色
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

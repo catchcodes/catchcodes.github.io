@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>Markdown教程 | CatchCodes</title>
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-Markdown教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-06T11:51:36.000Z" itemprop="datePublished">2023-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Markdown教程
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/7.jpg" alt="" data-align="center" width="555">
+<span id="more"></span>
+<h2 id="前言">前言</h2>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span> 工欲善其事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必先利其器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>书写博客内容或项目的README文档是一个繁琐的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个好的工具能让简化这个过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而Markdown绝对是最好的工具之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我将用这一篇博客带你入门Markdown的语法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="markdown简单介绍">Markdown简单介绍</h3>
+<p>引自Wikipedia<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p><strong>Markdown</strong>是一种轻量级标记语言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创始人为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B4%84%E7%BF%B0%C2%B7%E6%A0%BC%E9%AD%AF%E4%BC%AF" title="约翰·格鲁伯">约翰·格鲁伯</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它允许人们使用易读易写的纯文本格式编写文档<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后转换成有效的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XHTML" title="XHTML">XHTML</a><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>或者<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTML" title="HTML">HTML</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>文档<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种语言吸收了很多在电子邮件中已有的纯文本标记的特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>由于Markdown的轻量化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>易读易写特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且对于图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数学式都有支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>目前许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/GitHub" title="GitHub">GitHub</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Reddit" title="Reddit">Reddit</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Discord" title="Discord">Discord</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Diaspora_(%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C)" title="Diaspora (社交网络)">Diaspora</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Stack_Exchange" title="Stack Exchange">Stack Exchange</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/OpenStreetMap" title="OpenStreetMap">OpenStreetMap</a> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SourceForge" title="SourceForge">SourceForge</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%AE%80%E4%B9%A6" title="简书">简书</a>等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至还能被用来撰写电子书<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>Markdown可用于在纯文本文档中添加格式化元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让使用者更加专注于文字内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能轻松在码字的同时做出美观大方的排版<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不用受到格式上的桎梏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="markdown工作原理">Markdown工作原理</h3>
+<p><strong>Markdown编辑器</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>应用程序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>通过<strong>Markdown处理器</strong>将markdown格式的文本转换为html格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而在Web上显示</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Markdown%E5%8E%9F%E7%90%86.png" alt="" data-align="center" width="283">
+<p>Markdown 格式的文件转换为 HTML 或可打印的文档的步骤如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<ol>
+<li>使用文本编辑器或 Markdown 专用的应用程序创建 Markdown 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>该文件应带有 <code>.md</code> 或 <code>.markdown</code> 扩展名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>在 Markdown 应用程序中打开 Markdown 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>使用 Markdown 应用程序将 Markdown 文件转换为 HTML 文档<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>在 web 浏览器中查看 HTML 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或使用 Markdown 应用程序将其转换为其他文件格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 PDF<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+</blockquote>
+<h3 id="markdown基础教程">Markdown基础教程</h3>
+<p>个人比较推荐直接看Markdown官方教程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>本文仅是Markdown一个粗略的教程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<div align=center>
+<a target="_blank" rel="noopener" href="https://markdown.com.cn/">
+<img src="https://markdown.com.cn/hero.png" />
+</a>
+</br>
+Markdown官方教程
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元素</th>
+<th style="text-align:left">Markdown语法</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">标题</td>
+<td style="text-align:left"><code># H1&lt;/br&gt;## H2&lt;/br&gt;### H3 </code></td>
+<td style="text-align:center">要创建标题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在单词或短语前面添加井号(<code>#</code>) <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>#</code>的<strong>数量</strong>代表了标题的级别</td>
+</tr>
+<tr>
+<td style="text-align:center">段落</td>
+<td style="text-align:left">空白行隔开即可</td>
+<td style="text-align:center">要创建段落<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请使用<strong>空白行</strong>将一行或多行文本进行分隔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不要用空格<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>spaces<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或制表符<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span> tabs<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>缩进段落</td>
+</tr>
+<tr>
+<td style="text-align:center">换行</td>
+<td style="text-align:left">空格+回车即可</td>
+<td style="text-align:center">在一行的末尾添加<strong>两个或多个</strong>空格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后按回车键,即可换行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>粗体</strong></td>
+<td style="text-align:left">** 内容 **</td>
+<td style="text-align:center">要加粗文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在单词或短语的前后各添加<strong>两个星号</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>**</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><em>斜体</em></td>
+<td style="text-align:left">* 内容 *</td>
+<td style="text-align:center">要用斜体显示文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在单词或短语前后添加<strong>一个星号</strong>(<code>*</code>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><s>删除线</s></td>
+<td style="text-align:left">~~ 要删除内容 ~~</td>
+<td style="text-align:center">在单词前后使用<strong>两个波浪号~~</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">块引用</td>
+<td style="text-align:left">&gt; 引用内容</td>
+<td style="text-align:center">要创建块引用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在段落前添加<strong>一个 <code>&gt;</code></strong> 符号</td>
+</tr>
+<tr>
+<td style="text-align:center">多段落引用</td>
+<td style="text-align:left">&gt;段落1</br>&gt; </br>&gt;段落2</td>
+<td style="text-align:center">段落之间的<strong>空白行</strong>添加一个<code>&gt;</code> 符号</td>
+</tr>
+<tr>
+<td style="text-align:center">嵌套块引用</td>
+<td style="text-align:left">&gt;内容</br>&gt;&gt;嵌套段落</td>
+<td style="text-align:center">在要嵌套的段落前添加<strong>一个 <code>&gt;&gt;</code></strong> 符号</td>
+</tr>
+<tr>
+<td style="text-align:center">带其他元素的块引用</td>
+<td style="text-align:left">在引用块中正常加入即可</td>
+<td style="text-align:center">块引用可以包含其他 Markdown 格式的元素<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>大部分都能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">有序列表</td>
+<td style="text-align:left">1. 第一项</br>2. 第二项</td>
+<td style="text-align:center">要创建有序列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在每个列表项前添加数字并紧跟一个英文句点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>数字<strong>不必按数学顺序</strong>排列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是列表应当以数字 1 起始<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">无序列表</td>
+<td style="text-align:left">- 列表项</br>或</br>* 列表项</br>或</br>+ 列表项</td>
+<td style="text-align:center">要创建无序列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在每个列表项前面添加<strong>破折号</strong> (-)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>星号</strong> (*) 或<strong>加号</strong> (+) <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>缩进一个或多个列表项可创建嵌套列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">带其他元素的列表</td>
+<td style="text-align:left">在列表中正常加入即可</td>
+<td style="text-align:center">要在保留列表连续性的同时在列表中添加另一种元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请将该元素缩进四个空格或<strong>一个制表符</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">代码</td>
+<td style="text-align:left"><code> `代码` </code></td>
+<td style="text-align:center">要将单词或短语表示为代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请将其包裹在<strong>一对反引号 ``</strong> 中</td>
+</tr>
+<tr>
+<td style="text-align:center">代码块</td>
+<td style="text-align:left"><code>代码块</code></td>
+<td style="text-align:center">在代码块之前和之后的行上使用<strong>三个反引号</strong>(```)或<strong>三个波浪号</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>~~~<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在代码块之前的反引号旁边指定一种语言可以对应<strong>高亮</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">分割线</td>
+<td style="text-align:left">***</br>或—</br>或___</td>
+<td style="text-align:center">要创建分隔线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在单独一行上使用<strong>三个或多个</strong>星号 (***)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>破折号 (—) 或下划线 (___) <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且不能包含其他内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了兼容性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在分隔线的前后均添加空白行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">链接</td>
+<td style="text-align:left"><code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></td>
+<td style="text-align:center">链接文本放在<strong>中括号</strong>[]内<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>链接地址放在后面的<strong>括号</strong>()中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>链接title(悬停时出现的文字)可选</td>
+</tr>
+<tr>
+<td style="text-align:center">网址和Email地址</td>
+<td style="text-align:left">&lt;网址&gt;</td>
+<td style="text-align:center">使用<strong>尖括号</strong>可以很方便地把URL或者email地址变成可点击的链接</td>
+</tr>
+<tr>
+<td style="text-align:center">图片</td>
+<td style="text-align:left"><code>![图片alt](图片链接 &quot;图片title&quot;)</code></td>
+<td style="text-align:center">要添加图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请使用<strong>感叹号</strong> (!), 然后在<strong>方括号</strong>增加替代文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图片链接放在<strong>圆括号</strong>里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>括号里的链接后可以增加一个可选的图片标题文本</td>
+</tr>
+<tr>
+<td style="text-align:center">表格</td>
+<td style="text-align:left"><code>|表头1|表头2|   | ---| ---|     |表项1|表项2|</code></td>
+<td style="text-align:center">要添加表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请使用三个或多个连字符<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><strong>—</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>创建每列的标题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并使用竖线(|)分隔每列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></br>您可以选择在表的任一端添加竖线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过在标题行中的连字符的<strong>左侧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>右侧或两侧添加冒号</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>:<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将列中的文本<strong>对齐</strong>到左侧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>右侧或中心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">任务列表</td>
+<td style="text-align:left">- [] 未完成任务</br>- [x] 已完成任务</td>
+<td style="text-align:center">要创建任务列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在任务列表项之前添加<strong>破折号-和方括号[ ]</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并在[ ]前面加上<strong>空格</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>要选择一个复选框<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在方括号[x]之间添加 x</td>
+</tr>
+<tr>
+<td style="text-align:center">引用类型链接</td>
+<td style="text-align:left">第一部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>[文本] [数字或字母或标点符号]</br>第二部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>[第一部分第二个括号的内容]: <code>https://网址</code></td>
+<td style="text-align:center">第一部分中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>第一组<strong>方括号</strong>包围应显示为链接的文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第一组和第二组<strong>方括号</strong>之间包含一个空格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第二组括号显示了一个标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该标签用于指向您存储在文档其他位置的链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></br>可以将链接的第二部分放在Markdown文档中的任何位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></br>第二部分中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>1.放在<strong>方括号</strong>中的标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其后紧跟一个<strong>冒号</strong>和至少一个<strong>空格</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如[label]: <span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>2.链接的URL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以选择将其括在尖括号中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>3.链接的可选标题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以将其括在双引号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>单引号或括号中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">脚注</td>
+<td style="text-align:left">正文[^1]正文</br>[^1]: 脚注内容</td>
+<td style="text-align:center">要创建脚注参考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请在方括号<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>[^1]<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>内添加插入符号和标识符<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>标识符可以是数字或单词<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不能包含空格或制表符<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在括号内使用另一个插入符号和数字添加脚注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并用冒号和文本<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>[^1]: 脚注内容.<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>您不必在文档末尾添加脚注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>您可以将它们放在除列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>块引号和表之类的其他元素之外的任何位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></td>
+</tr>
+<tr>
+<td style="text-align:center">emoji</td>
+<td style="text-align:left">复制和粘贴表情符号😀</br>或</br>使用表情符号简码<code>:符号简码:</code></td>
+<td style="text-align:center">以冒号开头和结尾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并包含表情符号的名称<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://gist.github.com/rxaviers/7360908">这是简码列表</a></td>
+</tr>
+</tbody>
+</table>
+<p>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Markdown还支持html语言<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>需要编辑器支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment">&lt;!--居中显示带链接的图片--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">align</span>=<span class="hljs-string">center</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;链接&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;图片链接&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> 
+</code></pre></div>
+<h3 id="markdown公式">Markdown公式</h3>
+<p>markdown的数学公式分为<strong>行内公式</strong>和<strong>行间公式</strong>(有的编辑器不支持)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>使用行内公式会让你的公式和之前的文字处于同一行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 使用行间公式会对之前的文字换行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后公式单独成行并居中显示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>行内公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ Latex行内公式$</code></p>
+<p>行间公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$$ Latex行间公式$$</code></p>
+<h5 id="常用公式">常用公式</h5>
+<p><strong>上角标</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code> $ x^n$</code><span class="markdown-them-math-inline">$\rightarrow x^2$</span></p>
+<p><strong>下角标</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code> $ x_n$</code><span class="markdown-them-math-inline">$\rightarrow x_n$</span></p>
+<p><strong>上划线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong><code>$ \overline&#123;abc&#125;$</code><span class="markdown-them-math-inline">$\rightarrow \overline{abc}$</span></p>
+<p>下划线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \underline&#123;abc&#125;$</code><span class="markdown-them-math-inline">$\rightarrow \underline{abc}$</span></p>
+<p><strong>竖线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong><code>$ \vert$</code><span class="markdown-them-math-inline">$\rightarrow \vert$</span></p>
+<p><strong>模值</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \| i \| $</code><span class="markdown-them-math-inline">$\displaystyle \rightarrow \|i\|$</span></p>
+<p>乘号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \times$</code><span class="markdown-them-math-inline">$\rightarrow \times$</span></p>
+<p>除号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \div$</code><span class="markdown-them-math-inline">$\rightarrow \div$</span></p>
+<p>点乘<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>内积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \odot 或 \cdot$</code><span class="markdown-them-math-inline">$\rightarrow \odot \ \cdot $</span></p>
+<p>叉乘<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>交叉积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \otime 或 \times $</code><span class="markdown-them-math-inline">$\rightarrow \otimes\ \times$</span></p>
+<p><strong>平方根</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \sqrt&#123;x&#125;$</code><span class="markdown-them-math-inline">$\displaystyle \rightarrow \sqrt{x}$</span></p>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>{ }中的内容视为总体</p>
+<p><strong>n次根</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \sqrt[n]&#123;x&#125;$</code><span class="markdown-them-math-inline">$\displaystyle \rightarrow \sqrt[n]{x}$</span></p>
+<p><strong>分式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \frac&#123;x&#125;&#123;y&#125;$</code><span class="markdown-them-math-inline">$\rightarrow \frac{x}{y}$</span></p>
+<p><strong>求和</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \sum_&#123;k=1&#125;^n$</code><span class="markdown-them-math-inline">$\rightarrow \sum_{k=1}^n$</span></p>
+<p><strong>求积</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \prod_&#123;k=1&#125;^n$</code><span class="markdown-them-math-inline">$\rightarrow \prod_{k=1}^n$</span></p>
+<p><strong>积分</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \int_a^b$</code><span class="markdown-them-math-inline">$\rightarrow \int_a^b$</span></p>
+<p><strong>围线积分</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \oint$</code><span class="markdown-them-math-inline">$\rightarrow \oint$</span></p>
+<p><strong>二重积分</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \iint$</code><span class="markdown-them-math-inline">$\rightarrow \iint$</span></p>
+<p><strong>三重积分</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \iiint$</code><span class="markdown-them-math-inline">$\rightarrow \iiint$</span></p>
+<p><strong>箭头</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p><code>左箭头$\leftarrow \Leftarrow$</code>   <span class="markdown-them-math-inline">$\leftarrow\ \ \ \Leftarrow$</span></p>
+</li>
+<li>
+<p><code>右箭头$ \rightarrow \Rightarrow$</code>     <span class="markdown-them-math-inline">$\rightarrow\ \ \  \Rightarrow$</span></p>
+</li>
+<li>
+<p><code>双向箭头$ \leftrightarrow \Leftrightarrow$</code>      <span class="markdown-them-math-inline">$\leftrightarrow\ \ \  \Leftrightarrow$</span></p>
+</li>
+</ul>
+<p><strong>无穷</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \infty$</code><span class="markdown-them-math-inline">$\rightarrow \infty$</span></p>
+<p><strong>极限</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \lim_&#123;0\rightarrow \infty&#125;</code> <span class="markdown-them-math-inline">$\rightarrow \lim_{0\rightarrow\infty}$</span></p>
+<p><strong>偏导</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \partial$</code> <span class="markdown-them-math-inline">$\rightarrow \partial$</span></p>
+<p>哈密顿算子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \nabla$</code><span class="markdown-them-math-inline">$\rightarrow \nabla$</span></p>
+<p>任意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \forall$</code><span class="markdown-them-math-inline">$\rightarrow \forall$</span></p>
+<p>存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \exists$</code><span class="markdown-them-math-inline">$\rightarrow \exists$</span></p>
+<p><strong>正负号</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \pm 或 \mp$</code><span class="markdown-them-math-inline">$\rightarrow \pm \ \mp$</span></p>
+<p><strong>大于等于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong><code>$ \geq$</code><span class="markdown-them-math-inline">$\rightarrow \geq$</span></p>
+<p><strong>小于等于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong><code>$ \leq$</code><span class="markdown-them-math-inline">$\rightarrow \leq$</span></p>
+<p><strong>约等于</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \approx$</code><span class="markdown-them-math-inline">$\rightarrow \approx$</span></p>
+<p><strong>不等于</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \neq$</code><span class="markdown-them-math-inline">$\rightarrow \neq$</span></p>
+<p>属于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \in$</code><span class="markdown-them-math-inline">$\rightarrow \in$</span></p>
+<p>不属于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \notin$</code><span class="markdown-them-math-inline">$\rightarrow \notin$</span></p>
+<p>子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \subseteq$</code><span class="markdown-them-math-inline">$\rightarrow \subseteq$</span></p>
+<p>真子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \subset$</code><span class="markdown-them-math-inline">$\rightarrow \subset$</span></p>
+<p>角度度数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \degree$</code><span class="markdown-them-math-inline">$\rightarrow 360°$</span></p>
+<p>角度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>$ \angle$</code><span class="markdown-them-math-inline">$\rightarrow \angle 90°$</span></p>
+</br>
+<p>注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>可以通过展示格式控制Markdown公式的大小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如<code>\displaystyle</code>显示格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>公式较大</p>
+<p><code>$ \displaystyle \sum_&#123;k=1&#125;^n \int_0^1$</code>展现为<span class="markdown-them-math-inline">$\displaystyle \sum_{k=1}^n \int_0^1$</span></p>
+<p>而<code>$ \sum_&#123;k=1&#125;^n$</code>展现为 <span class="markdown-them-math-inline">$\sum_{k=1}^n \int_0^1$</span></p>
+</br>
+<p><strong>分段函数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>$$ 
+函数名=\begin&#123;cases&#125;
+公式1 &amp; 条件1 \\
+公式2 &amp; 条件2 \\
+公式3 &amp; 条件3 
+\end&#123;cases&#125;
+$$
+</code></pre></div>
+<p><code>&amp;</code>符号用于对齐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>$ W(x) = \begin&#123;cases&#125; (a+2)|x|^3-(a+3)|x|^2+1 &amp; |x| \leq 1 \\ a|x|^3-5a|x|^2+8a|x|-4a &amp; 1&lt;|x|&lt;2 \\ 0 &amp; otherwise \end&#123;cases&#125;$
+</code></pre></div>
+<p><span class="markdown-them-math-inline">$ W(x) = \begin{cases} (a+2)|x|^3-(a+3)|x|^2+1 &amp; |x| \leq 1 \\ a|x|^3-5a|x|^2+8a|x|-4a &amp; 1&lt;|x|&lt;2 \\ 0 &amp; otherwise \end{cases}$</span></p>
+<p><strong>矩阵</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>$\begin&#123;pmatrix&#125;
+0&amp;1&amp;0\\
+1&amp;1&amp;0\\
+0&amp;0&amp;1\\
+\end&#123;pmatrix&#125;$
+</code></pre></div>
+<p>注1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>pmatrix为小括号()包围<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>bmatrix为中括号[]包围<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>vmatrix为单竖线||包围<br>
+注2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>\cdots为横省略元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>\vdots为竖省略元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>\ddots为斜省略元素</p>
+<p>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code>$ D = \begin&#123;bmatrix&#125; 2 \\ &amp;3\\ &amp;&amp;2 \\ &amp;&amp;&amp;3 \\ &amp;&amp;&amp;&amp;2 \end&#123;bmatrix&#125;$
+
+$ \begin&#123;bmatrix&#125;
+&#123;a<span class="hljs-emphasis">_&#123;11&#125;&#125;&amp;&#123;a_</span>&#123;12&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a<span class="hljs-emphasis">_&#123;1n&#125;&#125;\\
+&#123;a_</span>&#123;21&#125;&#125;&amp;&#123;a<span class="hljs-emphasis">_&#123;22&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a_</span>&#123;2n&#125;&#125;\\
+&#123;\vdots&#125;&amp;&#123;\vdots&#125;&amp;&#123;\ddots&#125;&amp;&#123;\vdots&#125;\\
+&#123;a<span class="hljs-emphasis">_&#123;m1&#125;&#125;&amp;&#123;a_</span>&#123;m2&#125;&#125;&amp;&#123;\cdots&#125;&amp;&#123;a<span class="hljs-emphasis">_&#123;mn&#125;&#125;\\
+\end&#123;bmatrix&#125;$
+</span></code></pre></div>
+<p><span class="markdown-them-math-inline">$ D = \begin{bmatrix} 2 \\ &amp;3\\ &amp;&amp;2 \\ &amp;&amp;&amp;3 \\ &amp;&amp;&amp;&amp;2 \end{bmatrix}$</span></p>
+</br>
+<p><span class="markdown-them-math-inline">$\begin{bmatrix}
+{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\
+{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\
+{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\
+{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{mn}}\\
+\end{bmatrix}$</span></p>
+<h5 id="常用希腊字母">常用希腊字母</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">希腊字母</th>
+<th style="text-align:left">小写</th>
+<th style="text-align:left">大写</th>
+<th>英语</th>
+<th style="text-align:center">发音</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\alpha\ A$</span></td>
+<td style="text-align:left">\alpha</td>
+<td style="text-align:left">A</td>
+<td>alpha</td>
+<td style="text-align:center"><strong>/'ælfə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\beta \ B$</span></td>
+<td style="text-align:left">\beta</td>
+<td style="text-align:left">B</td>
+<td>beta</td>
+<td style="text-align:center"><strong>/'bi:tə/ 或 /'beɪtə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\gamma \ \Gamma$</span></td>
+<td style="text-align:left">\gamma</td>
+<td style="text-align:left">\Gamma</td>
+<td>gamma</td>
+<td style="text-align:center"><strong>/'gæmə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\pi \ \Pi$</span></td>
+<td style="text-align:left">\pi</td>
+<td style="text-align:left">\Pi</td>
+<td>pi</td>
+<td style="text-align:center"><strong>/paɪ/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\lambda \ \Lambda$</span></td>
+<td style="text-align:left">\lambda</td>
+<td style="text-align:left">\Lambda</td>
+<td>lambda</td>
+<td style="text-align:center"><strong>/'læmdə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\delta \ \Delta$</span></td>
+<td style="text-align:left">\delta</td>
+<td style="text-align:left">\Delta</td>
+<td>delta</td>
+<td style="text-align:center"><strong>/'deltə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\theta\ \Theta $</span></td>
+<td style="text-align:left">\theta</td>
+<td style="text-align:left">\Theta</td>
+<td>theta</td>
+<td style="text-align:center"><strong>/'θi:tə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\rho \ P$</span></td>
+<td style="text-align:left">\rho</td>
+<td style="text-align:left">P</td>
+<td>rho</td>
+<td style="text-align:center"><strong>/rəʊ/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\sigma \ \Sigma$</span></td>
+<td style="text-align:left">\sigma</td>
+<td style="text-align:left">\Sigma</td>
+<td>sigma</td>
+<td style="text-align:center"><strong>/'sɪɡmə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\epsilon \ E$</span></td>
+<td style="text-align:left">\epsilon</td>
+<td style="text-align:left">E</td>
+<td>epsilon</td>
+<td style="text-align:center"><strong>/'epsɪlɒn/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\zeta \ Z$</span></td>
+<td style="text-align:left">\zeta</td>
+<td style="text-align:left">Z</td>
+<td>zeta</td>
+<td style="text-align:center"><strong>/'zi:tə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\eta\ H$</span></td>
+<td style="text-align:left">\eta</td>
+<td style="text-align:left">H</td>
+<td>eta</td>
+<td style="text-align:center"><strong>/'i:tə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\phi \ \Phi$</span></td>
+<td style="text-align:left">\phi</td>
+<td style="text-align:left">\Phi</td>
+<td>phi</td>
+<td style="text-align:center"><strong>/faɪ/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\psi \Psi$</span></td>
+<td style="text-align:left">\psi</td>
+<td style="text-align:left">\Psi</td>
+<td>psi</td>
+<td style="text-align:center"><strong>/psaɪ/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\omega\ \Omega$</span></td>
+<td style="text-align:left">\omega</td>
+<td style="text-align:left">\Omega</td>
+<td>omega</td>
+<td style="text-align:center"><strong>/'əʊmɪɡə/ 或 /oʊ’meɡə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\tau \ T$</span></td>
+<td style="text-align:left">\tau</td>
+<td style="text-align:left">T</td>
+<td>tau</td>
+<td style="text-align:center"><strong>/tɔ:/or/taʊ/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\kappa\ K$</span></td>
+<td style="text-align:left">\kappa</td>
+<td style="text-align:left">K</td>
+<td>kappa</td>
+<td style="text-align:center"><strong>/'kæpə/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\mu\ M$</span></td>
+<td style="text-align:left">\mu</td>
+<td style="text-align:left">M</td>
+<td>mu</td>
+<td style="text-align:center"><strong>/mju:/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\nu \ N$</span></td>
+<td style="text-align:left">\nu</td>
+<td style="text-align:left">N</td>
+<td>nu</td>
+<td style="text-align:center"><strong>/nju:/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\xi\ \Xi$</span></td>
+<td style="text-align:left">\xi</td>
+<td style="text-align:left">\Xi</td>
+<td>xi</td>
+<td style="text-align:center"><strong>/ksi/ 或 /'zaɪ/ 或 /'ksaɪ/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\omicron\ O$</span></td>
+<td style="text-align:left">\omicron</td>
+<td style="text-align:left">O</td>
+<td>omicron</td>
+<td style="text-align:center"><strong>/əu’maikrən/ 或 /'ɑmɪ,krɑn/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\upsilon \ \Upsilon$</span></td>
+<td style="text-align:left">\upsilon</td>
+<td style="text-align:left">\Upsilon</td>
+<td>upsilon</td>
+<td style="text-align:center"><strong>/'ipsilon/ 或 /'ʌpsilɒn/</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="markdown-them-math-inline">$\chi \ X $</span></td>
+<td style="text-align:left">\chi</td>
+<td style="text-align:left">X</td>
+<td>chi</td>
+<td style="text-align:center"><strong>/kaɪ/</strong></td>
+</tr>
+</tbody>
+</table>
+<h5 id="常用函数名">常用函数名</h5>
+<p><img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/%E5%87%BD%E6%95%B0.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/markdown/" rel="tag">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="2372941552.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HSV空间替换纯色衣服颜色
+        
+      </div>
+    </a>
+  
+  
+    <a href="1377691752.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Markdown编辑器——marktext下载与汉化
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

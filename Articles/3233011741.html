@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="codeva-XoOeDckGvZ" />
+  <meta name="msvalidate.01" content="346226DEF0E2B9D10C321CAF15AB7EAB" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2702607315469649"
+     crossorigin="anonymous"></script>
+  
+  
+  <title>深度学习基础-数据处理 | CatchCodes</title>
+  <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="暂离，莫相忆",clearTimeout(st)):(document.title="重汇，故人归",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="">
+  
+  
+    <link rel="alternate" href="../atom.xml" title="CatchCodes" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../logo.svg">
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+    <link rel="stylesheet" href="../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../index.html">首页</a>
+    
+      <a class="main-nav-link" href="../archives">文章</a>
+    
+      <a class="main-nav-link" href="../about">关于</a>
+    
+      <a class="main-nav-link" href="../reward">打赏</a>
+    
+      <a class="main-nav-link" href="../html">嬉戏</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../index.html" id="logo">CatchCodes</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-深度学习基础-数据处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-03T10:23:54.000Z" itemprop="datePublished">2023-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      深度学习基础-数据处理
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/37.jpg" alt="" data-align="center" width="537">
+<span id="more"></span>
+<h1 id="数据部分">数据部分</h1>
+<p>所谓AI三要素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>算力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/AI%E4%B8%89%E8%A6%81%E7%B4%A0.png" title="" alt="" data-align="center">
+<p>对于深度学习来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型需要大量不同种的数据(暂且先不谈小样本学习Few-shot Learing)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才能训练出正确率高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>泛化性好的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而数据的质量很大程度上决定了模型的性能与鲁棒性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>Huber从稳健统计的角度系统地给出了鲁棒性3个层面的概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li>
+<p>模型具有较高的精度或有效性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
+</li>
+<li>
+<p>对于模型假设出现的较小偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能对算法性能产生较小的影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>噪声点</p>
+</li>
+<li>
+<p>对于模型假设出现的较大偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不可对算法性能产生<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>灾难性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>离群点</p>
+</li>
+</ol>
+</blockquote>
+<p><em>题外话</em><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> ChatGPT的训练集60%是互联网爬取<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也没管网站的Robots协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>20%是OpenAI的WebText2数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>剩下的来自书或Wiki<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一共4100亿的tokens<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>词元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>国内的大模型(Foundation Model)的训练集数据主要就是爬取网页和搜索引擎<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据质量良莠不齐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练出的模型也只在中文处理能力上跟ChatGPT差不多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>国内大模型下一步的重点应该放在数据上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是去扩大参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<img src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/20230403203701.png" title="" alt="" data-align="center">
+<p>数据处理的过程主要分为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><strong>数据采集</strong>–&gt;<strong>数据标注</strong>–&gt;<strong>数据增强</strong>–&gt;<strong>数据清洗</strong></p>
+<p>本文将主要介绍数据增强与数据清洗</p>
+<h2 id="数据采集(data-acquisition)">数据采集(Data Acquisition)</h2>
+<p>在深度学习中所使用的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其本身是存在于现实世界的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是杂乱的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>随机的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数量是无法确定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为现实世界中无时无刻都在产生各种不同的新数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而我们要使用的数据一般是结构化的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>有规律的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>确定数量的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以一般数据采集就是从现实世界的数据中进行采样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这一过程就是完成从现实世界把数据转移到我们当前任务环境中的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>值得注意的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在采样过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要保证采样的数据分布规律和现实世界中的数据分布规律一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为只有这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>采样得到的数据在一定程度上才能能够代替现实世界中的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>数据采集的方法主要有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p><strong>网络数据采集</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>网络爬虫或公开数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+<li>
+<p><strong>感知设备采集</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>摄像头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>传感器或其他采集设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+<li>
+<p><strong>生成数据</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GAN<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>VAE或扩散模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+</ul>
+<h2 id="数据标注(data-annotation)">数据标注(Data Annotation)</h2>
+<p>数据标注是对未经处理过的语音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>文本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>视频等数据进行加工处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而转变成机器可识别信息的过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>目前主流的模型都是监督学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据与标签一一映射才能参与训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>数据标准一般是借助标注工具来完成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如<a target="_blank" rel="noopener" href="https://github.com/wkentaro/labelme">labelme</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://labelbox.com/">Labelbox</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://github.com/opencv/cvat">CVAT</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者是通过数据标注众包<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>百度众包之类的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>标注</p>
+<h2 id="数据增强(data-augmentation)">数据增强(Data Augmentation)</h2>
+<p>数据增强指通过对已有数据添加微小改动或从已有数据新创建合成数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以<strong>增加数据量</strong>的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>数据增强是对数据采集的补充<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果数据在采样过程中就已经包括了各种复杂环境下的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么数据增强不是必要的<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>但是这可以增加你数据集中相关数据的数据量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然而采集到的数据一般都是不足以表达实际数据分布情况的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据增强的本质原因是由于原始数据无论是从数量还是质量上来说都不够丰富<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>CV领域</strong>的数据增强主要有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p>空间几何变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>翻转<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>水平和垂直<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>随机裁剪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>旋转<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>仿射变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>视觉变换<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>四点透视变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+<li>
+<p>光照变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>随机亮度变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>对比度变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>色彩度变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>饱和度变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>噪声变换</p>
+</li>
+<li>
+<p>遮挡变换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>Random erase</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>随机删除<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在图上随机遮挡某一部分的像素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>Cutout</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>裁剪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按照一定的间隔遮挡NxN像素大小的小格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是具有规律的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般是等距间隔的小格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>N一般取2或4很小的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>类似于给图片加噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>hide and seek</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>裁剪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按照更大的间隔遮挡NxN像素大小的小格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是具有规律的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般是等距间隔的小格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>N一般取值更大一些<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>Grid Mask</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>网格掩码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>先把图像进行分成不同的格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后按照一定的方法去挑选遮挡某些格子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>遮挡的效果取决于格子的大小和被遮挡的格子数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>类似于增加正样本的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>Dropblock</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>对图像数据使用dropout<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后再将多个dropout之间连成块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以此达到遮挡的目的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>模糊类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>高斯模糊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>ElasticTransformation</p>
+</li>
+<li>
+<p>HSV对比度变换</p>
+</li>
+<li>
+<p>图像融合操作</p>
+</li>
+</ul>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA.jpg" alt="" data-align="center" width="451">
+<p><strong>NLP领域</strong>的数据增强主要有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p>同义词替换</p>
+</li>
+<li>
+<p>随机drop<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于标题和描述中的字或词,随机的进行删除,用空格代替</p>
+</li>
+<li>
+<p>随机 shuffle, 即打乱词序</p>
+</li>
+<li>
+<p>回译<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>快速产生一些不那么准确的翻译结果达到增加数据的目的</p>
+<img title="" src="https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/%E5%9B%9E%E8%AF%91.png" alt="" width="380" data-align="center">
+</li>
+<li>
+<p>添加一些随机单词的拼写错误</p>
+</li>
+</ul>
+<p>实际上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有当我们增强后的样本与测试样本<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>应用场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>分布一致时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才会达到性能最好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>大部分模型在做了数据增强后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在最终的效果上还是有很大的提升的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是因为数据增强的方法中经常会加入一些极端情况下的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而这种极端情况下的数据在现实环境中一般很难采集得到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是也有一些小模型在做了扰动过大的数据增强后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在最终识别效果反而会下降</p>
+<h2 id="数据清洗(cleansing)">数据清洗(Cleansing)</h2>
+<p>数据清洗常用的过程有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>缺失值处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>删除重复值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>异常值处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>归一化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>标准化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>白化处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>笔者主要介绍归一化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>标准化与白化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="归一化">归一化</h4>
+<p>把数据变成(0,1)或者(-1,1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>之间的小数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把有量纲表达式变成<strong>无量纲表达式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便于不同单位或量级的指标能够进行比较和加权<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>Min-Max归一化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$ \displaystyle x' = \frac{x - X_{min}}{X_{max} - X_{min}}$</span></li>
+<li>平均归一化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$ \displaystyle x' = \frac{x - \mu}{X_{max} - X_{min}}$</span></li>
+<li>对数函数转换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$ \displaystyle x' = log_n(x)$</span></li>
+<li>反余切函数转换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$ \displaystyle x' = arctan(x) *\frac{2}{\pi}$</span></li>
+</ul>
+<h4 id="标准化">标准化</h4>
+<p>使每个特征中的数值<em>平均值变为0</em>(将每个特征的值都减掉原始数据中该特征的平均)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>标准差变为1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据存在<strong>异常值</strong>和噪声时常用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>Z-score标准化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><span class="markdown-them-math-inline">$ \displaystyle x' = \frac{x-\mu}{\sigma}$</span></li>
+</ul>
+<p>归一化/标准化后可以加快梯度下降的求解速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即提升模型的收敛速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span><br>
+一些分类器需要计算样本之间的距离(如欧氏距离)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-cn/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95">KNN</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果一个特征值域范围非常大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么距离计算就主要取决于这个特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的泛化性降低</p>
+<h4 id="白化处理">白化处理</h4>
+<p>白化的目的是去除输入数据的冗余信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输入数据集X<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过白化处理后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>新的数据X’满足两个性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>特征之间相关性较低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>所有特征具有相同的方差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+        <a href="#comments" class="article-comment-link">
+          留言
+        </a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/Deep-Learing/" rel="tag">Deep-Learing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="tag">数据处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="1377691752.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Markdown编辑器——marktext下载与汉化
+        
+      </div>
+    </a>
+  
+  
+    <a href="403018703.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          First Article
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <section id="comments" class="vcomment">
+
+  </section>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <style>
+    .picture{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/anchor.svg);
+      position: relative;
+      animation: run 60s linear infinite;
+      display: inline-block;
+    }
+    @keyframes run{
+      from{transform: rotate(0deg);}
+      25%{transform: rotate(15deg);}
+      50%{transform: rotate(0deg);}
+      75%{transform: rotate(-15deg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  <style>
+    .picture1{
+      width: 16px;
+      height: 16px;
+      background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/markdown_img/Clear.svg);
+      position: relative;
+      animation: run1 12s ease infinite;
+      display: inline-block;
+    }
+    @keyframes run1{
+      from{transform: rotate(0deg);}
+      50%{transform: rotate(45deg);background-image: url(https://cdn.jsdelivr.net/gh/catchcodes/MyImg/emoji/sun.svg);}
+      to{transform: rotate(0deg);}
+    }
+    .picture1:hover{
+      animation-play-state: paused;
+    }
+  </style>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      2023
+      <div class="picture1"></div>
+      <a target="_blank" rel="noopener" href="https://github.com/catchcodes">catchcodes</a>
+      <div class="picture"></div>
+      <span id="busuanzi_container_site_pv" style='display:none'>
+        浏览数：<span id="busuanzi_value_site_pv"></span>
+      </span>
+      <br>
+      
+        All website licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></br>        
+      
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../index.html" class="mobile-nav-link">首页</a>
+  
+    <a href="../archives" class="mobile-nav-link">文章</a>
+  
+    <a href="../about" class="mobile-nav-link">关于</a>
+  
+    <a href="../reward" class="mobile-nav-link">打赏</a>
+  
+    <a href="../html" class="mobile-nav-link">嬉戏</a>
+  
+</nav>
+    
+
+<script src="../js/clipboard.min.js"></script>
+<script src="../js/jquery-1.4.3.min.js"></script>
+
+
+<script src="../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../js/script.js"></script>
+
+
+
+
+<!-- Valine评论系统 -->
+
+  
+<script src="../js/valine.js"></script>
+
+<script>
+  var GUEST_INFO = ["nick", "mail", "link"];
+  var guest_info = "nick, mail, link"
+    .split(",")
+    .filter(function (item) {
+      return GUEST_INFO.indexOf(item) > -1;
+    });
+  var notify = "false" == true;
+  var verify = "false" == true;
+  new Valine({
+    el: ".vcomment",
+    notify: notify,
+    verify: verify,
+    appId: "r6w8VclbrCK3nOVumPM3NdlQ-gzGzoHsz",
+    appKey: "uh3ToTDTobR1KkthWCnzbBa7",
+    visitor: "true" === "true",
+    placeholder: "友好评论",
+    pageSize: "10",
+    avatar: "mp",
+    lang: "zh-cn",
+    enableQQ: "true",
+    meta: ["nick", "mail"],
+    requiredFields: ["nick", "mail"],
+    tagMeta: ["小萌新", "大佬", "纯路人"],
+    master: ["3b27f0f480f11d2e25722f83cc78c113"],
+    friends: ["aee32d8b11344d644f63db0cfbac8cc0", "e2f29d8879c52228d0e6861b26319eb6", "dbd531e0bad6b6ceea990dfdc5cf8f1c", "88429f7d3fdcf1d17a53a832d1ea8ed4"],
+  });
+</script>
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false,
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+    },
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script
+  type="text/javascript"
+  id="MathJax-script"
+  async
+  src="../mathjax/tex-chtml.js"
+></script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+ 
+
+
+
+  </div>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
