@@ -644,7 +644,7 @@
       "use strict";
       t.__esModule = !0;
       (t.DEFAULT_EMOJI_CDN =
-        "https://valinecdn.bili33.top/"),
+        "https://cdn.jsdelivr.net/gh/GamerNoTitle/ValineCDN@master/"),
         (t.DB_NAME = "Comment"),
         (t.defaultConfig = {
           lang: "zh-CN",
