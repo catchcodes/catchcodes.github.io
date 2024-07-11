@@ -30,23 +30,6 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.css"
-  />
-  
-  <div id="sakana-widget" style="position:fixed;right:0;bottom:0px;"></div>
-  <script>
-    function initSakanaWidget() {
-      new SakanaWidget().mount('#sakana-widget');
-    }
-  </script>
-  <script
-    async
-    onload="initSakanaWidget()"
-    src="https://cdn.jsdelivr.net/npm/sakana-widget@2.7.0/lib/sakana.min.js"
-  ></script>
-
   <div id="container">
     <div id="wrap">
       <div id="nav-outer">
@@ -107,6 +90,9 @@
       
     </div>
     <footer class="article-footer">
+      import 'sakana-widget/lib/index.css';
+      import SakanaWidget from 'sakana-widget';
+      new SakanaWidget().mount('#sakana-widget');
       
       
         <a href="#comments" class="article-comment-link">
