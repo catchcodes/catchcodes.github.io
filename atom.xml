@@ -200,9 +200,9 @@
     
     <category term="Deep-Learing" scheme="https://catchcodes.github.io/tags/Deep-Learing/"/>
     
-    <category term="数据处理" scheme="https://catchcodes.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
-    
     <category term="深度学习" scheme="https://catchcodes.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="数据处理" scheme="https://catchcodes.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
